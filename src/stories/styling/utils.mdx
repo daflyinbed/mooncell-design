@@ -1,0 +1,15 @@
+import { Meta } from "@storybook/blocks";
+
+<Meta title="styling/utils" />
+
+## CSS Reset
+### Global reset
+A fork of modern-normalize@v3.0.0 is reexported as `reset.css`.
+```css
+import "@mooncell/design/reset.css"
+```
+### Scoping on children
+However, you might be progressively migrating a website to Mooncell Design, using a global reset might not be an option. It's possible to apply the baseline only to the children by using the Scoped Reset. Everything is scoped under `.m-reset`
+```css
+import "@mooncell/design/scoped-reset.css"
+```
