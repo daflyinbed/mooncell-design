@@ -3,6 +3,7 @@
   "type": "module",
   "version": "0.0.0",
   "private": true,
+  "packageManager": "pnpm@9.9.0",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc -b && vite build",
@@ -10,9 +11,10 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
-  "dependencies": {
-    "vue": "^3.4.37"
+  "peerDependencies": {
+    "vue": "^3.0.0"
   },
+  "dependencies": {},
   "devDependencies": {
     "@chromatic-com/storybook": "^1.8.0",
     "@storybook/addon-essentials": "^8.2.9",
@@ -31,6 +33,10 @@
     "storybook": "^8.2.9",
     "typescript": "^5.5.3",
     "vite": "^5.4.1",
+    "vue": "^3.4.37",
     "vue-tsc": "^2.0.29"
+  },
+  "lint-staged": {
+    "*": "eslint --fix"
   }
 }
