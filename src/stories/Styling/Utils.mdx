@@ -1,0 +1,21 @@
+import { Meta } from "@storybook/blocks";
+
+<Meta title="样式/工具" />
+
+## CSS 基线
+
+### 全局重置
+
+我们重新导出了一个基于modern-normalize@v3.0.0的css reset，你可以直接在css导入他。
+
+```css
+@import "@mooncell/design/reset.css";
+```
+
+### 局部重置
+
+如果你正在逐步将网站迁移到Mooncell Design，全局重置可能会破坏太多东西。可以使用局部重置仅将重置应用在`.m-reset`之下。
+
+```css
+@import "@mooncell/design/scoped-reset.css";
+```

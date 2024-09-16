@@ -1,0 +1,68 @@
+/* * * * * * * * * * * * * * * * * * * */
+/*                                     */
+/*           Semantic colors           */
+/*                                     */
+/* * * * * * * * * * * * * * * * * * * */
+
+/* * * * * * * * * * * * * * * * * * * */
+/*                                     */
+/*            Color scheme             */
+/*                                     */
+/* * * * * * * * * * * * * * * * * * * */
+
+/*
+ * Make sure that forced light/dark appearance also sets corresponding browser colors,
+ * like input autofill color and body scrollbar
+ */
+.m-themes:where(.light, .light-theme) {
+  &,
+  :root:where(:has(&[data-is-root-theme="true"])) {
+    color-scheme: light;
+  }
+}
+.m-themes:where(.dark, .dark-theme) {
+  &,
+  :root:where(:has(&[data-is-root-theme="true"])) {
+    color-scheme: dark;
+  }
+}
+
+/* * * * * * * * * * * * * * * * * * * */
+/*                                     */
+/*   selection                         */
+/*                                     */
+/* * * * * * * * * * * * * * * * * * * */
+
+.m-themes ::selection {
+  background-color: var(--accent-a5);
+}
+
+/* * * * * * * * * * * * * * * * * * * */
+/*                                     */
+/*         Background and text         */
+/*                                     */
+/* * * * * * * * * * * * * * * * * * * */
+
+.m-themes {
+  color: var(--gray-12);
+  &:where([data-has-background="true"]) {
+    background-color: var(--color-background);
+  }
+}
+
+/* * * * * * * * * * * * * * * * * * * */
+/*                                     */
+/*          Panel background           */
+/*                                     */
+/* * * * * * * * * * * * * * * * * * * */
+
+.m-themes {
+  &:where([data-panel-background="solid"]) {
+    --color-panel: var(--color-panel-solid);
+    --backdrop-filter-panel: none;
+  }
+  &:where([data-panel-background="translucent"]) {
+    --color-panel: var(--color-panel-translucent);
+    --backdrop-filter-panel: blur(64px);
+  }
+}
