@@ -1,0 +1,69 @@
+// import { fn } from "@storybook/test";
+import MButton from "./MButton.vue";
+import type { Meta, StoryObj } from "@storybook/vue3";
+
+// More on how to set up stories at: https://storybook.js.org/docs/writing-stories
+const meta = {
+  title: "Components/MButton",
+  component: MButton,
+  // This component will have an automatically generated docsPage entry: https://storybook.js.org/docs/writing-docs/autodocs
+  tags: ["autodocs"],
+} satisfies Meta<typeof MButton>;
+
+export default meta;
+type Story = StoryObj<typeof meta>;
+/*
+ *👇 Render functions are a framework specific feature to allow you control on how the component renders.
+ * See https://storybook.js.org/docs/api/csf
+ * to learn how to use render functions.
+ */
+export const Default: Story = {
+  args: {
+    disabled: false,
+    variant: "solid",
+    size: "medium",
+  },
+
+  render: (args) => ({
+    components: { MButton },
+    setup() {
+      return { args };
+    },
+    template: `<MButton v-bind="args">Button</MButton>`,
+  }),
+
+  argTypes: {
+    variant: {
+      options: ["solid", "soft", "surface", "outline", "ghost"],
+      control: { type: "select" },
+    },
+    size: {
+      options: ["small", "medium", "large"],
+      control: { type: "select" },
+    },
+  },
+};
+export const Sizes: Story = {
+  render: () => ({
+    components: { MButton },
+    template: `
+    <div style="display: flex; justify-content: space-around;">
+      <MButton size="small">MButton</MButton>
+      <MButton size="medium">MButton</MButton>
+      <MButton size="large">MButton</MButton>
+    </div>`,
+  }),
+};
+export const variant: Story = {
+  render: () => ({
+    components: { MButton },
+    template: `
+    <div style="display: flex; justify-content: space-around;">
+      <MButton variant="solid">MButton</MButton>
+      <MButton variant="soft">MButton</MButton>
+      <MButton variant="surface">MButton</MButton>
+      <MButton variant="outline">MButton</MButton>
+      <MButton variant="ghost">MButton</MButton>
+    </div>`,
+  }),
+};

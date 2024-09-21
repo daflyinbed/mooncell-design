@@ -156,8 +156,8 @@
   --color-surface: rgba(255, 255, 255, 0.85);
 }
 
-:where(.dark),
-:where(.dark) :where(.m-themes:not(.light)) {
+.dark,
+.dark :where(.m-themes:not(.light)) {
   --color-background: var(--gray-1);
   --color-overlay: rgba(0, 0, 0, 0.6);
   --color-panel-solid: var(--gray-2);

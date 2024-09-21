@@ -6,7 +6,9 @@
     class="m-themes"
     :class="{ light: appearances === 'light', dark: appearances === 'dark' }"
     :data-is-root="parentTheme ? 'false' : 'true'"
-  ></div>
+  >
+    <slot></slot>
+  </div>
 </template>
 <script lang="ts" setup>
 import { inject, provide } from "vue";

@@ -1,186 +1,258 @@
-/*
- modified from modern-normalize v3.0.0
- modern-normalize v3.0.0 | MIT License | https://github.com/sindresorhus/modern-normalize
- */
+/* Make sure these tags are wrapped in `:where()` for 0 specificity. */
 
 .m-reset {
-  /* Improve consistency of default fonts in all browsers. (https://github.com/sindresorhus/modern-normalize/issues/3) */
-  font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji";
-  line-height: 1.15; /* 1. Correct the line height in all browsers. */
-  -webkit-text-size-adjust: 100%; /* 2. Prevent adjustments of font size after orientation changes in iOS. */
-  tab-size: 4; /* 3. Use a more readable tab size (opinionated). */
-  margin: 0; /* Remove the margin in all browsers. */
-  *,
-  ::before,
-  ::after {
-    box-sizing: border-box;
+  /* * * * * * * * * * * * * * * * * * * */
+  /*                                     */
+  /*              Margins                */
+  /*                                     */
+  /* * * * * * * * * * * * * * * * * * * */
+
+  &:where(body, blockquote, dl, dd, figure, p) {
+    margin: 0;
   }
 
-  /*
-Text-level semantics
-====================
-*/
+  /* * * * * * * * * * * * * * * * * * * */
+  /*                                     */
+  /*             Typography              */
+  /*                                     */
+  /* * * * * * * * * * * * * * * * * * * */
 
-  /**
-Add the correct font weight in Chrome and Safari.
-*/
-
-  b,
-  strong {
-    font-weight: bolder;
+  &:where(
+      address,
+      b,
+      cite,
+      code,
+      dfn,
+      em,
+      i,
+      kbd,
+      q,
+      samp,
+      small,
+      strong,
+      var
+    ) {
+    font: unset;
+  }
+  &:where(h1, h2, h3, h4, h5, h6) {
+    font: unset;
+    margin: 0;
   }
 
-  /**
-1. Improve consistency of default fonts in all browsers. (https://github.com/sindresorhus/modern-normalize/issues/3)
-2. Correct the odd 'em' font sizing in all browsers.
-*/
+  /* * * * * * * * * * * * * * * * * * * */
+  /*                                     */
+  /*        Interactive elements         */
+  /*                                     */
+  /* * * * * * * * * * * * * * * * * * * */
 
-  code,
-  kbd,
-  samp,
-  pre {
-    font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono",
-      Menlo, monospace; /* 1 */
-    font-size: 1em; /* 2 */
+  &:where(a) {
+    all: unset;
+    -webkit-tap-highlight-color: transparent;
+  }
+  &:where(
+      button,
+      select,
+
+      /* Buttons */
+      [type='button'],
+      [type='image'],
+      [type='reset'],
+      [type='submit'],
+
+      /* Non-textual inputs */
+      [type='checkbox'],
+      [type='color'],
+      [type='radio'],
+      [type='range']
+    ) {
+    all: unset;
+    display: inline-block;
+    font-weight: normal;
+    font-style: normal;
+    text-indent: initial;
+    -webkit-tap-highlight-color: transparent;
+  }
+  &:where(label) {
+    -webkit-tap-highlight-color: transparent;
+  }
+  &:where(select) {
+    font-weight: normal;
+    font-style: normal;
+    text-align: start;
+  }
+  &:where(
+      textarea,
+      input:not(
+          /* Buttons */
+          [type='button'],
+          [type='image'],
+          [type='reset'],
+          [type='submit'],
+
+          /* Non-textual inputs */
+          [type='checkbox'],
+          [type='color'],
+          [type='radio'],
+          [type='range']
+        )
+    ) {
+    all: unset;
+    display: block;
+    width: stretch;
+    font-weight: normal;
+    font-style: normal;
+    text-align: start;
+    text-indent: initial;
+    -webkit-tap-highlight-color: transparent;
+
+    /* Make sure parent <label> doesn't change the text cursor */
+    cursor: text;
+
+    /* Recover textarea pre-wrap in Firefox */
+    white-space: pre-wrap;
+  }
+  &:where(:focus) {
+    outline: none;
+  }
+  &::placeholder {
+    color: unset;
+    opacity: unset;
+    /* Weird, but placeholders are selectable in Chrome and Safari */
+    user-select: none;
   }
 
-  /**
-Add the correct font size in all browsers.
-*/
+  /* * * * * * * * * * * * * * * * * * * */
+  /*                                     */
+  /*               Tables                */
+  /*                                     */
+  /* * * * * * * * * * * * * * * * * * * */
 
-  small {
-    font-size: 80%;
+  &:where(table) {
+    all: unset;
+    display: table;
+    text-indent: initial;
   }
-
-  /**
-Prevent 'sub' and 'sup' elements from affecting the line height in all browsers.
-*/
-
-  sub,
-  sup {
-    font-size: 75%;
-    line-height: 0;
-    position: relative;
-    vertical-align: baseline;
+  &:where(caption) {
+    text-align: inherit;
   }
-
-  sub {
-    bottom: -0.25em;
+  &:where(td) {
+    padding: 0;
   }
-
-  sup {
-    top: -0.5em;
-  }
-
-  /*
-Tabular data
-============
-*/
-
-  /**
-Correct table border color inheritance in Chrome and Safari. (https://issues.chromium.org/issues/40615503, https://bugs.webkit.org/show_bug.cgi?id=195016)
-*/
-
-  table {
-    border-color: currentcolor;
-  }
-
-  /*
-Forms
-=====
-*/
-
-  /**
-1. Change the font styles in all browsers.
-2. Remove the margin in Firefox and Safari.
-*/
-
-  button,
-  input,
-  optgroup,
-  select,
-  textarea {
-    font-family: inherit; /* 1 */
-    font-size: 100%; /* 1 */
-    line-height: 1.15; /* 1 */
-    margin: 0; /* 2 */
-  }
-
-  /**
-Correct the inability to style clickable types in iOS and Safari.
-*/
-
-  button,
-  [type="button"],
-  [type="reset"],
-  [type="submit"] {
-    -webkit-appearance: button;
-  }
-
-  /**
-Remove the padding so developers are not caught out when they zero out 'fieldset' elements in all browsers.
-*/
-
-  legend {
+  &:where(th) {
+    font-weight: unset;
+    text-align: inherit;
     padding: 0;
   }
 
-  /**
-Add the correct vertical alignment in Chrome and Firefox.
-*/
+  /* * * * * * * * * * * * * * * * * * * */
+  /*                                     */
+  /*       Individual style tweaks       */
+  /*                                     */
+  /* * * * * * * * * * * * * * * * * * * */
 
-  progress {
-    vertical-align: baseline;
+  &:where(abbr, acronym) {
+    text-decoration: none;
+  }
+  &:where(canvas, object, picture, summary) {
+    display: block;
+  }
+  &:where(del, s) {
+    text-decoration: unset;
+  }
+  &:where(fieldset, hr) {
+    all: unset;
+    display: block;
+  }
+  &:where(legend) {
+    padding: 0;
+    border: none;
+    /* Normalize with label */
+    cursor: default;
+  }
+  &:where(li) {
+    display: block;
+    text-align: unset;
+  }
+  &:where(ol, ul) {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  &:where(iframe) {
+    display: block;
+    border: none;
+  }
+  &:where(iframe) {
+    width: stretch;
+  }
+  &:where(ins, u) {
+    text-decoration: none;
+  }
+  &:where(img) {
+    display: block;
+    max-width: 100%;
+  }
+  &:where(svg) {
+    display: block;
+    max-width: 100%;
+    flex-shrink: 0;
+  }
+  &:where(mark) {
+    all: unset;
+  }
+  &:where(pre) {
+    font: unset;
+    margin: unset;
+  }
+  &:where(q)::before,
+  &:where(q)::after {
+    content: "";
+  }
+  &:where(sub, sup) {
+    font: unset;
+    vertical-align: unset;
+  }
+  &:where(details) ::marker,
+  &:where(summary)::marker {
+    content: none;
+  }
+  &:where(video) {
+    display: block;
+    width: stretch;
   }
 
-  /**
-Correct the cursor style of increment and decrement buttons in Safari.
-*/
+  /* * * * * * * * * * * * * * * * * * * */
+  /*                                     */
+  /*               Cursors               */
+  /*                                     */
+  /* * * * * * * * * * * * * * * * * * * */
 
-  ::-webkit-inner-spin-button,
-  ::-webkit-outer-spin-button {
-    height: auto;
+  &:where(:any-link) {
+    cursor: var(--cursor-link);
+  }
+  &:where(button) {
+    cursor: var(--cursor-button);
+  }
+  &:where(:disabled, [data-disabled]) {
+    cursor: var(--cursor-disabled);
+  }
+  &:where(input[type="checkbox"]) {
+    cursor: var(--cursor-checkbox);
+  }
+  &:where(input[type="radio"]) {
+    cursor: var(--cursor-radio);
   }
 
-  /**
-1. Correct the odd appearance in Chrome and Safari.
-2. Correct the outline style in Safari.
-*/
+  /* * * * * * * * * * * * * * * * * * * */
+  /*                                     */
+  /*             Box sizing              */
+  /*                                     */
+  /* * * * * * * * * * * * * * * * * * * */
 
-  [type="search"] {
-    -webkit-appearance: textfield; /* 1 */
-    outline-offset: -2px; /* 2 */
-  }
-
-  /**
-Remove the inner padding in Chrome and Safari on macOS.
-*/
-
-  ::-webkit-search-decoration {
-    -webkit-appearance: none;
-  }
-
-  /**
-1. Correct the inability to style clickable types in iOS and Safari.
-2. Change font properties to 'inherit' in Safari.
-*/
-
-  ::-webkit-file-upload-button {
-    -webkit-appearance: button; /* 1 */
-    font: inherit; /* 2 */
-  }
-
-  /*
-Interactive
-===========
-*/
-
-  /*
-Add the correct display in Chrome and Safari.
-*/
-
-  summary {
-    display: list-item;
+  &,
+  &::before,
+  &::after {
+    /* Don't reorder this rule or remove "&" */
+    box-sizing: border-box;
   }
 }

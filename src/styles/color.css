@@ -14,13 +14,13 @@
  * Make sure that forced light/dark appearance also sets corresponding browser colors,
  * like input autofill color and body scrollbar
  */
-.m-themes:where(.light, .light-theme) {
+.m-themes:where(.light) {
   &,
   :root:where(:has(&[data-is-root-theme="true"])) {
     color-scheme: light;
   }
 }
-.m-themes:where(.dark, .dark-theme) {
+.m-themes:where(.dark) {
   &,
   :root:where(:has(&[data-is-root-theme="true"])) {
     color-scheme: dark;

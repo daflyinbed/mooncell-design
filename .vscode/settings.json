@@ -36,5 +36,6 @@
     "scss",
     "pcss",
     "postcss"
-  ]
+  ],
+  "eslint.useFlatConfig": true
 }
