@@ -21,7 +21,7 @@ export const Default: Story = {
   args: {
     disabled: false,
     variant: "solid",
-    size: "medium",
+    size: "2",
   },
 
   render: (args) => ({
@@ -38,7 +38,7 @@ export const Default: Story = {
       control: { type: "select" },
     },
     size: {
-      options: ["small", "medium", "large"],
+      options: ["1", "2", "3", "4"],
       control: { type: "select" },
     },
   },
@@ -48,9 +48,10 @@ export const Sizes: Story = {
     components: { BaseButton },
     template: `
     <div style="display: flex; justify-content: space-around;">
-      <BaseButton size="small">Button</BaseButton>
-      <BaseButton size="medium">Button</BaseButton>
-      <BaseButton size="large">Button</BaseButton>
+      <BaseButton size="1">1</BaseButton>
+      <BaseButton size="2">2</BaseButton>
+      <BaseButton size="3">3</BaseButton>
+      <BaseButton size="4">4</BaseButton>
     </div>`,
   }),
 };
@@ -59,11 +60,11 @@ export const variant: Story = {
     components: { BaseButton },
     template: `
     <div style="display: flex; justify-content: space-around;">
-      <BaseButton variant="solid">Button</BaseButton>
-      <BaseButton variant="soft">Button</BaseButton>
-      <BaseButton variant="surface">Button</BaseButton>
-      <BaseButton variant="outline">Button</BaseButton>
-      <BaseButton variant="ghost">Button</BaseButton>
+      <BaseButton variant="solid">solid</BaseButton>
+      <BaseButton variant="soft">soft</BaseButton>
+      <BaseButton variant="surface">surface</BaseButton>
+      <BaseButton variant="outline">outline</BaseButton>
+      <BaseButton variant="ghost">ghost</BaseButton>
     </div>`,
   }),
 };

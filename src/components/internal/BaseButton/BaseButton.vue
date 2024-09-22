@@ -1,13 +1,16 @@
 <template>
-  <button
+  <Primitive
     :class="`m-BaseButton m-variant-${variant} m-size-${size}`"
     :data-disabled="booleanToAttribute(disabled)"
-    :disabled="disabled"
+    :disabled="booleanToAttribute(disabled)"
+    as="button"
+    :as-child="asChild"
   >
     <slot></slot>
-  </button>
+  </Primitive>
 </template>
 <script lang="ts" setup>
+import { Primitive } from "radix-vue";
 import { booleanToAttribute } from "@/utils";
 import { BuildDefaultPropType } from "./props.ts";
 import type { PropType } from "./props.ts";
@@ -47,24 +50,29 @@ withDefaults(defineProps<PropType>(), BuildDefaultPropType());
     height: fit-content;
   }
 }
-
 .m-BaseButton {
-  &:where(.m-size-small) {
+  &:where(.m-size-1) {
     --base-button-classic-active-padding-top: 1px;
     --base-button-height: var(--space-5);
     border-radius: max(var(--radius-1), var(--radius-full));
   }
-  &:where(.m-size-medium) {
+  &:where(.m-size-2) {
     --base-button-classic-active-padding-top: 2px;
     --base-button-height: var(--space-6);
     border-radius: max(var(--radius-2), var(--radius-full));
   }
-  &:where(.m-size-large) {
+  &:where(.m-size-3) {
     --base-button-classic-active-padding-top: 2px;
     --base-button-height: var(--space-7);
     border-radius: max(var(--radius-3), var(--radius-full));
   }
+  &:where(.m-size-4) {
+    --base-button-classic-active-padding-top: 2px;
+    --base-button-height: var(--space-8);
+    border-radius: max(var(--radius-4), var(--radius-full));
+  }
 }
+
 :where(.m-themes) {
   --base-button-classic-after-inset: 2px;
   --base-button-classic-box-shadow-top: inset 0 0 0 1px var(--gray-a4),

@@ -1,5 +1,7 @@
 <template>
-  <BaseButton v-bind="$props" class="m-Button"><slot /></BaseButton>
+  <BaseButton v-bind="$props" class="m-Button">
+    <slot />
+  </BaseButton>
 </template>
 <script lang="ts" setup>
 import BaseButton from "../internal/BaseButton/BaseButton.vue";
@@ -57,7 +59,7 @@ withDefaults(defineProps<PropType>(), BuildDefaultPropType());
 }
 
 .m-Button {
-  &:where(.m-size-small) {
+  &:where(.m-size-1) {
     gap: var(--space-1);
     font-size: var(--font-size-1);
     line-height: var(--line-height-1);
@@ -73,7 +75,7 @@ withDefaults(defineProps<PropType>(), BuildDefaultPropType());
       --button-ghost-padding-y: var(--space-1);
     }
   }
-  &:where(.m-size-medium) {
+  &:where(.m-size-2) {
     gap: var(--space-2);
     font-size: var(--font-size-2);
     line-height: var(--line-height-2);
@@ -89,7 +91,7 @@ withDefaults(defineProps<PropType>(), BuildDefaultPropType());
       --button-ghost-padding-y: var(--space-1);
     }
   }
-  &:where(.m-size-large) {
+  &:where(.m-size-3) {
     gap: var(--space-3);
     font-size: var(--font-size-3);
     line-height: var(--line-height-3);
@@ -103,6 +105,22 @@ withDefaults(defineProps<PropType>(), BuildDefaultPropType());
       gap: var(--space-2);
       --button-ghost-padding-x: var(--space-3);
       --button-ghost-padding-y: calc(var(--space-1) * 1.5);
+    }
+  }
+  &:where(.m-size-4) {
+    gap: var(--space-3);
+    font-size: var(--font-size-4);
+    line-height: var(--line-height-4);
+    letter-spacing: var(--letter-spacing-4);
+
+    &:where(:not(.m-variant-ghost)) {
+      padding-left: var(--space-5);
+      padding-right: var(--space-5);
+    }
+    &:where(.m-variant-ghost) {
+      gap: var(--space-2);
+      --button-ghost-padding-x: var(--space-4);
+      --button-ghost-padding-y: var(--space-2);
     }
   }
 }

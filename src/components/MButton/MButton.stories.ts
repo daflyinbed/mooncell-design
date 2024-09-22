@@ -21,7 +21,7 @@ export const Default: Story = {
   args: {
     disabled: false,
     variant: "solid",
-    size: "medium",
+    size: "2",
   },
 
   render: (args) => ({
@@ -38,7 +38,7 @@ export const Default: Story = {
       control: { type: "select" },
     },
     size: {
-      options: ["small", "medium", "large"],
+      options: ["1", "2", "3", "4"],
       control: { type: "select" },
     },
   },
@@ -48,9 +48,10 @@ export const Sizes: Story = {
     components: { MButton },
     template: `
     <div style="display: flex; justify-content: space-around;">
-      <MButton size="small">MButton</MButton>
-      <MButton size="medium">MButton</MButton>
-      <MButton size="large">MButton</MButton>
+      <MButton size="1">1</MButton>
+      <MButton size="2">2</MButton>
+      <MButton size="3">3</MButton>
+      <MButton size="4">4</MButton>
     </div>`,
   }),
 };
@@ -59,11 +60,17 @@ export const variant: Story = {
     components: { MButton },
     template: `
     <div style="display: flex; justify-content: space-around;">
-      <MButton variant="solid">MButton</MButton>
-      <MButton variant="soft">MButton</MButton>
-      <MButton variant="surface">MButton</MButton>
-      <MButton variant="outline">MButton</MButton>
-      <MButton variant="ghost">MButton</MButton>
+      <MButton variant="solid">solid</MButton>
+      <MButton variant="soft">soft</MButton>
+      <MButton variant="surface">surface</MButton>
+      <MButton variant="outline">outline</MButton>
+      <MButton variant="ghost">ghost</MButton>
     </div>`,
+  }),
+};
+export const asChild: Story = {
+  render: () => ({
+    components: { MButton },
+    template: `<MButton variant="ghost" as-child><a href=".">ghost</a></MButton>`,
   }),
 };

@@ -150,7 +150,7 @@
 /* background */
 :where(.m-themes) {
   --color-background: white;
-  --color-overlay: rgba(0, 0, 0, 0.4);
+  --color-overlay: var(--black-a6);
   --color-panel-solid: white;
   --color-panel-translucent: rgba(255, 255, 255, 0.7);
   --color-surface: rgba(255, 255, 255, 0.85);
@@ -159,8 +159,26 @@
 .dark,
 .dark :where(.m-themes:not(.light)) {
   --color-background: var(--gray-1);
-  --color-overlay: rgba(0, 0, 0, 0.6);
+  --color-overlay: var(--black-a8);
   --color-panel-solid: var(--gray-2);
   --color-panel-translucent: var(--gray-a2);
   --color-surface: rgba(0, 0, 0, 0.25);
+}
+
+:root {
+  --black-a1: rgba(0, 0, 0, 0.05);
+  --black-a2: rgba(0, 0, 0, 0.1);
+  --black-a3: rgba(0, 0, 0, 0.15);
+  --black-a4: rgba(0, 0, 0, 0.2);
+  --black-a5: rgba(0, 0, 0, 0.3);
+  --black-a6: rgba(0, 0, 0, 0.4);
+  --black-a7: rgba(0, 0, 0, 0.5);
+  --black-a8: rgba(0, 0, 0, 0.6);
+  --black-a9: rgba(0, 0, 0, 0.7);
+  --black-a10: rgba(0, 0, 0, 0.8);
+  --black-a11: rgba(0, 0, 0, 0.9);
+  --black-a12: rgba(0, 0, 0, 0.95);
+}
+:where(.m-themes) {
+  --color-transparent: rgb(0 0 0 / 0);
 }
